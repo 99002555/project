@@ -1,7 +1,5 @@
 /** 
 * @file calculator_operations.h
-* Calculator application with 4 mathematical operations
-*
 */
 #ifndef __CALCULATOR_OPERATIONS_H__
 #define __CALCULATOR_OPERATIONS_H__
