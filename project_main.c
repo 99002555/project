@@ -12,7 +12,7 @@ int calculator_operand1 = 0;
 int calculator_operand2 = 0;
 
 /* Valid operations */
-enum operations{ ADD=1, SUBTRACT, MULTIPLY, DIVIDE, EXIT };
+enum operations{ ADD=1, SUBTRACT, MULTIPLY, DIVIDE ,SQUARES ,CUBES , POWER, MAX ,FACTORIAL ,PRIME ,AVERAGE ,SWAP , EXIT };
 
 /* Display the menu of operations supported */
 void calculator_menu(void);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 void calculator_menu(void)
 {
     printf("\nAvailable Operations\n");
-    printf("\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit");
+    printf("\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Squares\n6. Cubes\n7. Power\n8. Max\n9. Factorial\n10. Prime\n11. Average\n12. Swap\n13. Exit");
     printf("\n\tEnter your choice\n");
    
      __fpurge(stdin);
@@ -97,7 +97,78 @@ void calculator_menu(void)
             __fpurge(stdin);
             getchar();
             break;
-        case 5:
+        case SQUARES:
+            printf("\n\t%d / %d = %d\nEnter to continue", 
+            calculator_operand1, 
+            squares(calculator_operand1);
+                   
+            __fpurge(stdin);
+            getchar();
+            break;
+         case CUBES:
+             printf("\n\t%d / %d = %d\nEnter to continue", 
+            calculator_operand1, 
+            cubes(calculator_operand1);
+                   
+            __fpurge(stdin);
+            getchar();
+            break;
+          case POWER:
+               printf("\n\t%d / %d = %d\nEnter to continue", 
+            calculator_operand1,
+            calculator_operand2,        
+            power(calculator_operand1,calculator_operand2);
+                   
+            __fpurge(stdin);
+            getchar();
+            break;
+          case MAX:
+                printf("\n\t%d / %d = %d\nEnter to continue", 
+            calculator_operand1,
+            calculator_operand2,           
+            max(calculator_operand1,calculator_operand2);
+                   
+            __fpurge(stdin);
+            getchar();
+            break;
+          case FACTORIAL:
+                  printf("\n\t%d / %d = %d\nEnter to continue", 
+            calculator_operand1, 
+            factorial(calculator_operand1);
+                   
+            __fpurge(stdin);
+            getchar();
+            break;  
+          case PRIME:
+               printf("\n\t%d / %d = %d\nEnter to continue", 
+           calculator_operand1, 
+            prime(calculator_operand1);
+                   
+            __fpurge(stdin);
+            getchar();
+            break;
+          case AVERAGE:
+                printf("\n\t%d / %d = %d\nEnter to continue", 
+            calculator_operand1,
+            calculator_operand2,
+            average(calculator_operand1,calculator_operand2);
+                   
+            __fpurge(stdin);
+            getchar();
+            break;
+         case SWAP:
+                  printf("\n\t%d / %d = %d\nEnter to continue", 
+            calculator_operand1,
+            calculator_operand2,
+            swap(calculator_operand1,calculator_operand2);
+                   
+            __fpurge(stdin);
+            getchar();
+            break;
+                   
+                   
+            
+        case 13:
             exit(0);
             break;
         default:
