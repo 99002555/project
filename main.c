@@ -19,21 +19,25 @@ int main()
     
     printf("7.Factorial\n");
     
+    printf("8.Prime\n");
     
-
-    printf("5. Exit\n");
+    printf("9.Average\n");
+    
+    printf("10.Swap\n");
+    
+    printf("11. Exit\n");
 
     printf("***Enter your choice***: ");
 
     scanf("%d", &choice);
 
-    if(choice < 1 || choice > 5){
+    if(choice < 1 || choice > 11){
 
       printf("\n### Invalid Entry | Enter Again ###\n\n");
 
       continue;
     }
-    if(choice == 5){
+    if(choice == 11){
       break;
     }
     int number1 = 0, number2 = 0;
@@ -43,6 +47,6 @@ int main()
     scanf("%d", &number2);
     int result = calculator(choice, number1, number2);
     printf("Answer = %d\n", result);
-  }while(choice!=5);
+  }while(choice!=11);
 
 }
