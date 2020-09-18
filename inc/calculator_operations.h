@@ -44,4 +44,21 @@ int multiply(int operand1, int operand2);
 */
 int divide(int operand1, int operand2);
 
+int squares(int operand1);
+
+int cubes(int operand1);
+
+int power(int operand1, int operand2);
+
+int max(int operand1, int operand2);
+
+int factorial(int operand1);
+
+int prime(int operand1);
+
+int average(int operand1, int operand2);
+
+int swap(int operand1 ,int operand2);
+
+
 #endif  /* #define __CALCULATOR_OPERATIONS_H__ */
