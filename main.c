@@ -12,6 +12,14 @@ int main()
     printf("3. Multiplication\n");
 
     printf("4. Division\n");
+    
+    printf("5. Positive_or_Negative\n");
+    
+    printf("6. Max_of_two\n");
+    
+    printf("7.Factorial\n");
+    
+    
 
     printf("5. Exit\n");
 
@@ -34,7 +42,7 @@ int main()
     printf("Enter second number: ");
     scanf("%d", &number2);
     int result = calculator(choice, number1, number2);
-    printf("Answer = %d", result);
+    printf("Answer = %d\n", result);
   }while(choice!=5);
 
 }
