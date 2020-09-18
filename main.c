@@ -1,52 +1,112 @@
-#include <stdio.h>
-#include "Calculator.h"
+#include <Calculator.h>
 
-int main()
+/* Status of the operation requested */
+#define VALID   (1)
+#define INVALID (0)
+
+/* Calculator operation requested by user*/
+unsigned int calculator_operation = 0;
+
+/* Operands on which calculation is performed */
+int calculator_operand1 = 0;
+int calculator_operand2 = 0;
+
+/* Valid operations */
+enum operations{ ADD=1, SUBTRACT, MULTIPLY, DIVIDE, EXIT };
+
+/* Display the menu of operations supported */
+void calculator_menu(void);
+/* Verifies the requested operations validity */
+int valid_operation(int operation);
+
+
+/* Start of the application */
+int main(int argc, char *argv[])
 {
-  int choice = 0;
-  do{
-    printf("1. Addition\n");
-
-    printf("2. Subtraction\n");
-
-    printf("3. Multiplication\n");
-
-    printf("4. Division\n");
-    
-    printf("5. Positive_or_Negative\n");
-    
-    printf("6. Max_of_two\n");
-    
-    printf("7.Factorial\n");
-    
-    printf("8.Prime\n");
-    
-    printf("9.Average\n");
-    
-    printf("10.Swap\n");
-    
-    printf("11. Exit\n");
-
-    printf("***Enter your choice***: ");
-
-    scanf("%d", &choice);
-
-    if(choice < 1 || choice > 11){
-
-      printf("\n### Invalid Entry | Enter Again ###\n\n");
-
-      continue;
+    printf("\n****Calculator****\n");
+    while(1)
+    {
+        calculator_menu();
     }
-    if(choice == 11){
-      break;
-    }
-    int number1 = 0, number2 = 0;
-    printf("Enter first number: ");
-    scanf("%d", &number1);
-    printf("Enter second number: ");
-    scanf("%d", &number2);
-    int result = calculator(choice, number1, number2);
-    printf("Answer = %d\n", result);
-  }while(choice!=11);
+}
 
+void calculator_menu(void)
+{
+    printf("\nAvailable Operations\n");
+    printf("\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit");
+    printf("\n\tEnter your choice\n");
+   
+     __fpurge(stdin);
+    scanf("%d", &calculator_operation);
+
+    if(EXIT == calculator_operation)
+    {
+        printf("\nThank you. Exiting the Application\n");
+        exit(0);
+    }
+
+    if(INVALID != valid_operation(calculator_operation))
+    {
+        printf("\n\tEnter your Numbers with space between them\n");
+        __fpurge(stdin);
+        scanf("%d %d", &calculator_operand1, &calculator_operand2);
+    }
+    else
+    {
+        printf("\n\t---Wrong choice---\nEnter to continue\n");
+        __fpurge(stdin);
+        getchar();
+        return;
+        
+    }
+    switch(calculator_operation)
+    {
+        case ADD:
+            printf("\n\t%d + %d = %d\nEnter to continue", 
+            calculator_operand1, 
+            calculator_operand2,
+            add(calculator_operand1, calculator_operand2));
+            
+            __fpurge(stdin);
+            getchar();
+            break;
+        case SUBTRACT:
+            printf("\n\t%d - %d = %d\nEnter to continue", 
+            calculator_operand1, 
+            calculator_operand2,
+            subtract(calculator_operand1, calculator_operand2));
+            
+            __fpurge(stdin);
+            getchar();
+            break;
+        case MULTIPLY:
+            printf("\n\t%d * %d = %d\nEnter to continue", 
+            calculator_operand1, 
+            calculator_operand2,
+            multiply(calculator_operand1, calculator_operand2));
+            
+            __fpurge(stdin);
+            getchar();
+            break;
+        case DIVIDE:
+            printf("\n\t%d / %d = %d\nEnter to continue", 
+            calculator_operand1, 
+            calculator_operand2,
+            divide(calculator_operand1, calculator_operand2));
+            
+            __fpurge(stdin);
+            getchar();
+            break;
+        case 5:
+            exit(0);
+            break;
+        default:
+            printf("\n\t---It should never come here---\n");
+    }
+}
+
+int valid_operation(int operation)
+{
+    /* Check if the operation is a valid operation */
+    return ((ADD <= operation) && (EXIT >= operation)) ? VALID: INVALID;
 }
